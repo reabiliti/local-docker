@@ -2,9 +2,15 @@ version: '3.7'
 
 services:
   redis:
+    container_name: redis
     image: redis:alpine
+    ports:
+      - 6379:6379
+    volumes:
+      - redis-data:/data
 
   postgres:
+    container_name: postgres
     image: postgres:11-alpine
     ports:
       - 5432:5432
@@ -15,3 +21,4 @@ services:
 
 volumes:
   pg-data:
+  redis-data:
